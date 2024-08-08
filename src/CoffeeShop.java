@@ -2,13 +2,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class CoffeeShop {
-    private String name;
+
     private CoffeeMachine coffeeMachine;
+
     private Queue<Order> orders;
+
     private Queue<Integer> availableTokens;
 
-    public CoffeeShop(String name, CoffeeMachine coffeeMachine, int maxTokens) {
-        this.name = name;
+    public CoffeeShop(CoffeeMachine coffeeMachine, int maxTokens) {
         this.coffeeMachine = coffeeMachine;
         this.orders = new LinkedList<>();
         this.availableTokens = new LinkedList<>();
@@ -40,22 +41,10 @@ public class CoffeeShop {
         }
     }
 
-    public void displayOrders() {
-        System.out.println("Orders in queue:");
-        for (Order order : orders) {
-            System.out.println(order);
-        }
-    }
-
     public int assignToken() {
         if (availableTokens.isEmpty()) {
             throw new IllegalStateException("No available tokens. Please wait.");
         }
         return availableTokens.poll();
-    }
-
-    @Override
-    public String toString() {
-        return "CoffeeShop{name='" + name + "', coffeeMachine=" + coffeeMachine + "}";
     }
 }

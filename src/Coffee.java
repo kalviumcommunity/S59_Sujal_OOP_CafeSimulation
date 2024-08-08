@@ -20,7 +20,7 @@ public abstract class Coffee {
 
 class Espresso extends Coffee {
     public Espresso() {
-        super("Espresso", 2);
+        super("Espresso", 4);
     }
 
     @Override
@@ -31,7 +31,7 @@ class Espresso extends Coffee {
 
 class Latte extends Coffee {
     public Latte() {
-        super("Latte", 3);
+        super("Latte", 5);
     }
 
     @Override
@@ -42,7 +42,7 @@ class Latte extends Coffee {
 
 class Cappuccino extends Coffee {
     public Cappuccino() {
-        super("Cappuccino", 4);
+        super("Cappuccino", 6);
     }
 
     @Override
