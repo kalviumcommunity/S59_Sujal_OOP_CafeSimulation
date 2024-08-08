@@ -1,6 +1,6 @@
 public abstract class Coffee {
     private String name;
-    private int preparationTime; 
+    private int preparationTime;
 
     public Coffee(String name, int preparationTime) {
         this.name = name;
