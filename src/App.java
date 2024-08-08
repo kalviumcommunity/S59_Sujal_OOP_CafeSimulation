@@ -1,14 +1,16 @@
 import java.util.Scanner;
 
 public class App {
-
+    
     public static void main(String[] args) {
         CoffeeMachine coffeeMachine = new CoffeeMachine();
 
         coffeeMachine.turnOn();
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+        boolean keepRunning = true;
+
+        while (keepRunning) {
             System.out.println("Enter customer name:");
             String customerName = scanner.nextLine();
 
@@ -26,6 +28,7 @@ public class App {
             String coffeeChoice = scanner.nextLine();
 
             if (coffeeChoice.equalsIgnoreCase("exit")) {
+                keepRunning = false;
                 break;
             }
 
@@ -58,7 +61,7 @@ public class App {
                     .println("Would you like to place another order? Type 'exit' to quit or press Enter to continue.");
             String userInput = scanner.nextLine();
             if (userInput.equalsIgnoreCase("exit")) {
-                break;
+                keepRunning = false;
             }
         }
 

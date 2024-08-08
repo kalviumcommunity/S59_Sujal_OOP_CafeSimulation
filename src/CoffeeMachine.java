@@ -29,9 +29,10 @@ public class CoffeeMachine {
                 int preparationTime = coffee.getPreparationTime();
                 System.out.println(
                         "Preparing " + coffee.getName() + ". Please wait for " + preparationTime + " seconds...");
-                Thread.sleep(preparationTime * 1000); //
+                Thread.sleep(preparationTime * 1000);
             } catch (InterruptedException e) {
                 System.out.println("Coffee preparation interrupted.");
+                Thread.currentThread().interrupt();
             }
 
             System.out.println(coffee.getName() + " is ready for " + customer.getName()
