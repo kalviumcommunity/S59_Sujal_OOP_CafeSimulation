@@ -84,11 +84,12 @@ public class App {
 
             coffeeShop.processOrders();
 
-            System.out.println("All orders have been processed. Type 'exit' to quit or press Enter to add new orders.");
+            System.out.println("All orders have been processed.");
+            System.out.println("Type 'y' to add more orders, or any other key to exit.");
 
             String userInput = scanner.nextLine();
-            
-            if (userInput.equalsIgnoreCase("exit")) {
+
+            if (!userInput.equalsIgnoreCase("y")) {
                 break;
             }
         }
