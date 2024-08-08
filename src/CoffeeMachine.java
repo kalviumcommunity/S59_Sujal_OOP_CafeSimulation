@@ -39,28 +39,28 @@ public class CoffeeMachine {
 
     public void prepareCoffee(Order order) {
         if (this.isOn && hasEnoughResources()) {
-            if (this.isOn) {
-                useResources();
-                Coffee coffee = order.getCoffee();
-                Customer customer = order.getCustomer();
-                coffee.prepare();
 
-                try {
-                    int preparationTime = coffee.getPreparationTime();
-                    System.out.println(
-                            "Preparing " + coffee.getName() + ". Please wait for " + preparationTime + " seconds...");
-                    Thread.sleep(preparationTime * 1000);
-                } catch (InterruptedException e) {
-                    System.out.println("Coffee preparation interrupted.");
-                    Thread.currentThread().interrupt();
-                }
+            useResources();
+            Coffee coffee = order.getCoffee();
+            Customer customer = order.getCustomer();
+            coffee.prepare();
 
-                System.out.println(coffee.getName() + " is ready for " + customer.getName()
-                        + " (Token #" + customer.getToken() + ")");
-            } else {
-                System.out.println("Cannot prepare coffee for Token #" + order.getCustomer().getToken()
-                        + ". Check machine status or resources.");
+            try {
+                int preparationTime = coffee.getPreparationTime();
+                System.out.println(
+                        "Preparing " + coffee.getName() + ". Please wait for " + preparationTime + " seconds...");
+                Thread.sleep(preparationTime * 1000);
+            } catch (InterruptedException e) {
+                System.out.println("Coffee preparation interrupted.");
+                Thread.currentThread().interrupt();
             }
+
+            System.out.println(coffee.getName() + " is ready for " + customer.getName()
+                    + " (Token #" + customer.getToken() + ")");
+
+        } else {
+            System.out.println("Cannot prepare coffee for Token #" + order.getCustomer().getToken()
+                    + ". Check machine status or resources.");
         }
     }
 }
