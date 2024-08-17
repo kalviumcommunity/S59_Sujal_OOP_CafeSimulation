@@ -1,7 +1,5 @@
 public class CoffeeMachine {
     private boolean isOn;
-    private int waterLevel;
-    private int beanLevel;
 
     String blueText = "\u001B[34m";
     String greenText = "\u001B[32m";
@@ -10,8 +8,6 @@ public class CoffeeMachine {
 
     public CoffeeMachine() {
         this.isOn = false;
-        this.waterLevel = 100;
-        this.beanLevel = 100;
     }
 
     public void turnOn() {
@@ -29,13 +25,13 @@ public class CoffeeMachine {
     }
 
     public boolean hasEnoughResources() {
-        return waterLevel >= 5 && beanLevel >= 5;
+        return Storage.waterLevel >= 5 && Storage.beanLevel >= 5;
     }
 
     public boolean useResources() {
-        if (waterLevel >= 5 && beanLevel >= 5) {
-            this.waterLevel -= 5;
-            this.beanLevel -= 5;
+        if (Storage.waterLevel >= 5 && Storage.beanLevel >= 5) {
+            Storage.waterLevel -= 5;
+            Storage.beanLevel -= 5;
             return true;
         } else {
             System.out.println(redText + "Not enough resources to prepare coffee. Please refill water and beans."
