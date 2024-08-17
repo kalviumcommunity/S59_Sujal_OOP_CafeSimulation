@@ -24,28 +24,13 @@ public class CoffeeMachine {
         return isOn;
     }
 
-    public boolean hasEnoughResources() {
-        return Storage.waterLevel >= 5 && Storage.beanLevel >= 5;
-    }
-
-    public boolean useResources() {
-        if (Storage.waterLevel >= 5 && Storage.beanLevel >= 5) {
-            Storage.waterLevel -= 5;
-            Storage.beanLevel -= 5;
-            return true;
-        } else {
-            System.out.println(redText + "Not enough resources to prepare coffee. Please refill water and beans."
-                    + resetText);
-            return false;
-        }
-    }
-
     public void prepareCoffee(Order order) {
-        if (this.isOn && hasEnoughResources()) {
-            if (useResources()) {
-                Coffee coffee = order.getCoffee();
-                Customer customer = order.getCustomer();
+        if (this.isOn) {
+            Coffee coffee = order.getCoffee();
+            int waterRequired = 5;  
+            int beansRequired = 5; 
 
+            if (Storage.useResources(waterRequired, beansRequired)) {
                 coffee.prepare();
 
                 try {
@@ -58,12 +43,12 @@ public class CoffeeMachine {
                     Thread.currentThread().interrupt();
                 }
 
+                Customer customer = order.getCustomer();
                 System.out.println(blueText + coffee.getName() + " is ready for " + customer.getName()
                         + " (Token #" + customer.getToken() + ")\n" + resetText);
             }
         } else {
-            System.out.println("Cannot prepare coffee for Token #" + order.getCustomer().getToken()
-                    + ". Check machine status or resources.\n");
+            System.out.println("Cannot prepare coffee. The machine is OFF.");
         }
     }
 }
