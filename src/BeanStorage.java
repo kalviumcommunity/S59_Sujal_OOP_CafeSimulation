@@ -1,5 +1,9 @@
 public class BeanStorage extends Storage {
 
+    public BeanStorage(int initialLevel, int maxLevel) {
+        super(initialLevel, maxLevel);
+    }
+
     @Override
     public void checkLevel() {
         System.out.println("Current bean level: " + getLevel() + " units");
