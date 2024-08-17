@@ -1,13 +1,17 @@
 public class CoffeeMachine {
     private boolean isOn;
+    private BeanStorage beanStorage;
+    private WaterStorage waterStorage;
 
     String blueText = "\u001B[34m";
     String greenText = "\u001B[32m";
     String redText = "\u001B[31m";
     String resetText = "\u001B[0m";
 
-    public CoffeeMachine() {
+    public CoffeeMachine(BeanStorage beanStorage, WaterStorage waterStorage) {
         this.isOn = false;
+        this.beanStorage = beanStorage;
+        this.waterStorage = waterStorage;
     }
 
     public void turnOn() {
@@ -30,7 +34,7 @@ public class CoffeeMachine {
             int waterRequired = 5;  
             int beansRequired = 5; 
 
-            if (Storage.useResources(waterRequired, beansRequired)) {
+            if (waterStorage.use(waterRequired) && beanStorage.use(beansRequired)) {
                 coffee.prepare();
 
                 try {
@@ -46,6 +50,8 @@ public class CoffeeMachine {
                 Customer customer = order.getCustomer();
                 System.out.println(blueText + coffee.getName() + " is ready for " + customer.getName()
                         + " (Token #" + customer.getToken() + ")\n" + resetText);
+            } else {
+                System.out.println(redText + "Cannot prepare coffee due to insufficient resources." + resetText);
             }
         } else {
             System.out.println("Cannot prepare coffee. The machine is OFF.");

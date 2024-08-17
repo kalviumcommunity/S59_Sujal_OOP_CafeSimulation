@@ -4,7 +4,10 @@ public class App {
     private static final int MAX_ORDERS = 4;
 
     public static void main(String[] args) {
-        CoffeeMachine coffeeMachine = new CoffeeMachine();
+        BeanStorage beanStorage = new BeanStorage(100,100);
+        WaterStorage waterStorage = new WaterStorage(100,100);
+        
+        CoffeeMachine coffeeMachine = new CoffeeMachine(beanStorage, waterStorage);
         CoffeeShop coffeeShop = new CoffeeShop(coffeeMachine, MAX_ORDERS);
 
         coffeeMachine.turnOn();
