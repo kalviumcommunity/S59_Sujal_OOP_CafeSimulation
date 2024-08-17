@@ -4,14 +4,11 @@ public class App {
     private static final int MAX_ORDERS = 4;
 
     public static void main(String[] args) {
-        CoffeeMachine coffeeMachine = new CoffeeMachine();
-        CoffeeShop coffeeShop = new CoffeeShop(coffeeMachine, MAX_ORDERS);
+        CoffeeShop coffeeShop =  CoffeeShop(coffeeMachine, MAX_ORDERS);
 
         coffeeMachine.turnOn();
-        Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            Order[] orders = new Order[MAX_ORDERS];
             int orderCount = 0;
 
             while (orderCount < MAX_ORDERS) {
@@ -57,17 +54,17 @@ public class App {
                 }
 
                 int token = coffeeShop.assignToken();
-                Customer customer = new Customer(customerName, token);
+                Customer customer =  Customer(customerName, token);
                 coffeeShop.addCustomer(customer);
 
                 Coffee coffee = switch (choiceNumber) {
-                    case 1 -> new Espresso();
-                    case 2 -> new Latte();
-                    case 3 -> new Cappuccino();
+                    case 1 ->  Espresso();
+                    case 2 ->  Latte();
+                    case 3 ->  Cappuccino();
                     default -> null;
                 };
 
-                orders[orderCount++] = new Order(customer, coffee);
+                orders[orderCount++] =  Order(customer, coffee);
 
                 System.out.println(customerName + " (Token #" + token + ") placed an order for a " + coffee.getName());
 

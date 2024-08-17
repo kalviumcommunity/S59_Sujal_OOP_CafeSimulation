@@ -11,8 +11,6 @@ public class CoffeeShop {
 
     public CoffeeShop(CoffeeMachine coffeeMachine, int maxTokens) {
         this.coffeeMachine = coffeeMachine;
-        this.orders = new LinkedList<>();
-        this.availableTokens = new LinkedList<>();
         for (int i = 1; i <= maxTokens; i++) {
             availableTokens.add(i);
         }
@@ -23,7 +21,6 @@ public class CoffeeShop {
     }
 
     public void placeOrder(Customer customer, Coffee coffee) {
-        Order order = new Order(customer, coffee);
         orders.add(order);
         customer.placeOrder(order);
     }
@@ -43,7 +40,6 @@ public class CoffeeShop {
 
     public int assignToken() {
         if (availableTokens.isEmpty()) {
-            throw new IllegalStateException("No available tokens. Please wait.");
         }
         return availableTokens.poll();
     }
