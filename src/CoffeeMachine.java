@@ -8,12 +8,6 @@ public class CoffeeMachine {
     String redText = "\u001B[31m";
     String resetText = "\u001B[0m";
 
-    public CoffeeMachine(BeanStorage beanStorage, WaterStorage waterStorage) {
-        this.isOn = false;
-        this.beanStorage = beanStorage;
-        this.waterStorage = waterStorage;
-    }
-
     public void turnOn() {
         isOn = true;
         System.out.println(greenText + "Coffee machine is now ON." + resetText);

@@ -2,11 +2,6 @@ public abstract class Coffee {
     private String name;
     private int preparationTime;
 
-    public Coffee(String name, int preparationTime) {
-        this.name = name;
-        this.preparationTime = preparationTime;
-    }
-
      public String getName() {
          return name;
      }
@@ -19,9 +14,6 @@ public abstract class Coffee {
 }
 
 class Espresso extends Coffee {
-    public Espresso() {
-        super("Espresso", 4);
-    }
 
     @Override
     public void prepare() {
@@ -30,9 +22,6 @@ class Espresso extends Coffee {
 }
 
 class Latte extends Coffee {
-    public Latte() {
-        super("Latte", 5);
-    }
 
     @Override
     public void prepare() {
@@ -41,9 +30,6 @@ class Latte extends Coffee {
 }
 
 class Cappuccino extends Coffee {
-    public Cappuccino() {
-        super("Cappuccino", 6);
-    }
 
     @Override
     public void prepare() {
