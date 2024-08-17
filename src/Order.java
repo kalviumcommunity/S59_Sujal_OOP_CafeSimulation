@@ -7,11 +7,11 @@ public class Order {
         this.coffee = coffee;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
+     public Customer getCustomer() {
+         return customer;
+     }
 
-    public Coffee getCoffee() {
-        return coffee;
-    }
+     public Coffee getCoffee() {
+         return coffee;
+     }
 }

@@ -7,13 +7,13 @@ public abstract class Coffee {
         this.preparationTime = preparationTime;
     }
 
-    public String getName() {
-        return name;
-    }
+     public String getName() {
+         return name;
+     }
 
-    public int getPreparationTime() {
-        return preparationTime;
-    }
+     public int getPreparationTime() {
+         return preparationTime;
+     }
 
     public abstract void prepare();
 }
