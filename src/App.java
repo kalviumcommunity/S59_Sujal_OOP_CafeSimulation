@@ -6,8 +6,9 @@ public class App {
     public static void main(String[] args) {
         BeanStorage beanStorage = new BeanStorage(100,100);
         WaterStorage waterStorage = new WaterStorage(100,100);
-        
-        CoffeeMachine coffeeMachine = new CoffeeMachine(beanStorage, waterStorage);
+        MilkStorage milkStorage = new MilkStorage(100, 100);
+
+        CoffeeMachine coffeeMachine = new CoffeeMachine(beanStorage, waterStorage, milkStorage);
         CoffeeShop coffeeShop = new CoffeeShop(coffeeMachine, MAX_ORDERS);
 
         coffeeMachine.turnOn();
