@@ -15,7 +15,6 @@ public abstract class Coffee {
         return preparationTime;
     }
 
-    public abstract void prepare();
 }
 
 abstract class DairyCoffee extends Coffee {
@@ -23,11 +22,6 @@ abstract class DairyCoffee extends Coffee {
         super(name, preparationTime);
     }
 
-    @Override
-    public void prepare() {
-        System.out.println("Preparing " + getName() + "...");
-        addMilk();
-    }
 
     public void addMilk() {
         System.out.println("Adding milk to " + getName() + "...");
@@ -39,10 +33,6 @@ abstract class NonDairyCoffee extends Coffee {
         super(name, preparationTime);
     }
 
-    @Override
-    public void prepare() {
-        System.out.println("Preparing " + getName() + "...");
-    }
 }
 
 class Latte extends DairyCoffee {
