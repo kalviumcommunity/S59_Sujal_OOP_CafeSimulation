@@ -31,7 +31,7 @@ public class CoffeeMachine {
             boolean hasEnoughResources = resourceManager.checkAndUseResources(coffee);
 
             if (hasEnoughResources) {
-                coffee.prepare();
+                coffee.brew();
 
                 try {
                     int preparationTime = coffee.getPreparationTime();
