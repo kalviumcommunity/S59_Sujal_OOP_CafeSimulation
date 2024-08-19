@@ -3,7 +3,7 @@ public class ResourceManager {
     private BeanStorage beanStorage;
     private MilkStorage milkStorage;
 
-    public ResourceManager( BeanStorage beanStorage,WaterStorage waterStorage, MilkStorage milkStorage) {
+    public ResourceManager(BeanStorage beanStorage, WaterStorage waterStorage, MilkStorage milkStorage) {
         this.waterStorage = waterStorage;
         this.beanStorage = beanStorage;
         this.milkStorage = milkStorage;
@@ -12,10 +12,10 @@ public class ResourceManager {
     public boolean checkAndUseResources(Coffee coffee) {
         int waterRequired = 5;  
         int beansRequired = 5; 
-        int milkRequired = coffee instanceof DairyCoffee ? 3 : 0;  
+        int milkRequired = coffee.isDairy() ? 3 : 0;  
 
         boolean hasEnoughResources = waterStorage.use(waterRequired) && beanStorage.use(beansRequired);
-        if (milkRequired > 0) {
+        if (coffee.isDairy()) {
             hasEnoughResources = hasEnoughResources && milkStorage.use(milkRequired);
         }
 

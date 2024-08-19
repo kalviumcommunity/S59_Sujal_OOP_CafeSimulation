@@ -30,6 +30,8 @@ public class App {
         }
 
         coffeeMachine.turnOff();
+        resourceManager.checkAllLevels();
+        resourceManager.refillAll();
         inputHandler.closeScanner();
     }
 }
